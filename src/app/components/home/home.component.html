@@ -1,0 +1,16 @@
+<div class="container" *ngIf="salas$ | async as salas; else loading">
+  <!--{{ salas$ | async | json}}-->
+  
+    <app-salas style="min-width: 482px;"
+    *ngFor="let salaAux of salas" [salaAux]="salaAux"> 
+    </app-salas>
+  
+</div>
+<ng-template #loading style="margin-top:40px">
+  <div class="container-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+
+
+  

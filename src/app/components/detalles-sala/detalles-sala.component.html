@@ -1,0 +1,40 @@
+<div class="container" *ngIf="sala$ | async as sala; else loading">
+    <div></div>
+    <mat-grid-list cols="5">
+        <mat-grid-tile [rowspan]="3" [colspan]="3">
+            <img class="image" [src]="sala.image" alt="Image">
+        </mat-grid-tile>
+        <mat-grid-tile  [rowspan] ="1" [colspan]="2">
+            
+            <div class="Title">
+                <b>
+                    {{sala.nombre}}
+                </b>
+            </div>
+
+        </mat-grid-tile>
+        <mat-grid-tile [rowspan] ="1" [colspan]="2">
+
+            Capacidad: {{sala.capacidad}}         
+
+        </mat-grid-tile>
+        <mat-grid-tile [rowspan] ="1" [colspan]="2">
+            <td *ngIf="authSvc.userData | async; else logged">
+                <button mat-raised-button color="primary" (click)="openDialog()">Hacer reserva</button>
+            </td>
+            <ng-template #logged>
+                <td>
+                 <button mat-raised-button color="primary" disabled="true">Hacer reserva</button>
+                </td>
+            </ng-template>
+            
+        </mat-grid-tile>
+
+    </mat-grid-list>
+      
+</div>
+<ng-template #loading style="margin-top:40px">
+    <div class="container-spinner">
+        <mat-spinner> </mat-spinner>
+    </div>
+</ng-template>

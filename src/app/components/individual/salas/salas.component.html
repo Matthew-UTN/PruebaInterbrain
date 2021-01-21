@@ -1,0 +1,17 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title class="link" style="margin-top: 15px;">
+        {{salaAux.nombre}}
+      </mat-card-title>
+      <mat-card-subtitle>Sala de juegos</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image class="image" [src]="salaAux.image" alt="Image">
+    <mat-card-content>
+      <p>
+        Capacidad = {{salaAux.capacidad}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [routerLink]="['/sala',salaAux.id]">Ver mas</button>
+    </mat-card-actions>
+  </mat-card>

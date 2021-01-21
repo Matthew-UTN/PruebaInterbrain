@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>{{!this.reservaSvc.selectedReserva.id ? 'Nueva reserva' : 'Editar reserva'}}</h1>
+<div mat-dialog-content>
+  <mat-card>
+    <mat-card-title>{{!this.reservaSvc.selectedReserva.id ? 'Hacer una nueva reserva:' : 'Editar una reserva ya hecha:'}}</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="formReserva" (ngSubmit)="onSave(formReserva)">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha que quieres reservar:</mat-label>
+          <input matInput [min]="minDate" formControlName="fechaReservada" [matDatepicker]="fechaReservada">
+          <mat-datepicker-toggle matSuffix [for]="fechaReservada"></mat-datepicker-toggle>
+          <mat-datepicker #fechaReservada></mat-datepicker>
+        </mat-form-field>
+
+        <div class="ngx-timepicker-field-example">
+          <mat-label>La hora de comienzo (Entre 8am - 8pm):</mat-label>
+          <ngx-timepicker-field [min]="'8:00 am'" [max]="'08:00 pm'" [controlOnly]="true" formControlName="horaComienzo"></ngx-timepicker-field>     
+        </div>
+           
+        <button type="submit" mat-raised-button style="width: 45%;">Guardar</button>
+        <button mat-raised-button color="warn" style="width: 45%; margin-left: 10px;" mat-dialog-close>Close</button>
+      </form>
+
+    </mat-card-content>
+    
+</mat-card> 
+</div>

@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+    <button mat-button color="basic" class="button-navbar" >
+        
+        <a [routerLink]="['/home']" > Salas </a>
+        
+
+    </button>
+    
+    <span class="example-spacer"></span>
+    <button mat-stroked-button style="margin-right: 20px;" (click)="profile()" routerLinkActive="active" *ngIf="authSvc.userData | async; else register">
+      Perfil
+    </button>
+
+    <ng-template #register>
+      <button mat-stroked-button [routerLink]="['/register']" style="margin-right: 20px;">
+        Registrar
+      </button>
+    </ng-template>
+    
+
+    <button mat-stroked-button *ngIf="authSvc.userData | async; else login" style="margin-right: 20px;" (click)="onLogout()">
+      Salir
+    </button>
+    <ng-template #login>
+        <button mat-stroked-button [routerLink]="['/login']" style="margin-right: 20px;">
+          Entrar
+        </button>
+    </ng-template>
+
+    <button mat-stroked-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+</mat-toolbar>

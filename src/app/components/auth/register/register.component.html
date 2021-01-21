@@ -1,0 +1,28 @@
+<div class="container">
+    <div></div>
+    <mat-card class="card">
+        <mat-card-title>Register</mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister(registerForm.value)">
+                <mat-form-field appearance="legacy">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput required placeholder="Email" formControlName="email">
+                    
+                    <mat-error *ngIf="this.registerForm.value.email.invalid">{{getErrorMessageEmail()}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput required placeholder="Password" formControlName="password">
+                    
+                    <mat-error *ngIf="this.registerForm.value.password.invalid">{{getErrorMessagePassword()}}</mat-error>
+                </mat-form-field>
+                
+                <button type="submit" mat-raised-button color="primary" style="width: 100%;">Register</button>
+            </form>
+
+            <button mat-raised-button color="primary" style="width: 100%; margin-top: 20px;" [routerLink]="['/login']">Tenes una cuenta?</button>
+    
+        </mat-card-content>
+        
+    </mat-card>
+</div>

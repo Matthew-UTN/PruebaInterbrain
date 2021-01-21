@@ -1,0 +1,17 @@
+.container{
+  margin-top: 4%;
+  display: grid;
+  grid-template-columns: 40% 40%;
+  grid-column-gap: 10%;
+  grid-row-gap:  20px;
+  justify-content: center;
+  max-height: 20%;
+}
+
+.container-spinner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  margin-top: 15%;
+}

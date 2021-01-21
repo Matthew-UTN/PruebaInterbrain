@@ -1,0 +1,27 @@
+.container{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 5% 80% 5%;
+    grid-row-gap:  20px;
+    justify-content: center;
+    max-height: 20%;
+    
+  }
+    
+  .container-spinner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    margin-top: 15%;
+  }
+
+  /* Structure */
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }

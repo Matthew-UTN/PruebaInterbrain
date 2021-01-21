@@ -1,0 +1,53 @@
+<div class="container" *ngIf="profile$ | async as profile; else loading">
+    <div></div>
+
+
+    <div class="example-container mat-elevation-z8">
+
+        <div class="example-table-container">
+
+            <table mat-table [dataSource]="reservaArray" class="example-table"
+                    matSort matSortActive="Sala" matSortDisableClear matSortDirection="desc">
+                <!-- Number Column -->
+                <ng-container matColumnDef="Sala">
+                    <th mat-header-cell *matHeaderCellDef>Sala</th>
+                    <td mat-cell *matCellDef="let row">{{row.salaId}}</td>
+                </ng-container>
+
+                <!-- Title Column -->
+                <ng-container matColumnDef="Dia de la reserva">
+                    <th mat-header-cell *matHeaderCellDef>Dia de la reserva</th>
+                    <td mat-cell *matCellDef="let row">{{row.fechaReservada}}</td>
+                </ng-container>
+
+                <!-- State Column -->
+                <ng-container matColumnDef="Hora de la reserva">
+                    <th mat-header-cell *matHeaderCellDef>Hora de la reserva</th>
+                    <td mat-cell *matCellDef="let row">{{row.horaComienzo}}</td>
+                </ng-container>
+
+                <!-- Created Column -->
+                <ng-container matColumnDef="Acciones">
+                    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+                    <td mat-cell *matCellDef="let row">
+                        
+                        <button mat-raised-button color="warn" class="btn badge-danger" (click)="onDeleteReserva(row.id)">Eliminar</button>
+                    
+                    </td>        
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+
+      
+      
+      
+</div>
+<ng-template #loading style="margin-top:40px">
+    <div class="container-spinner">
+        <mat-spinner> </mat-spinner>
+    </div>
+</ng-template>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "prueba-tecnica-interbrain": {
+      "hosting": {
+        "prueba-interbrain": [
+          "prueba-tecnica-interbrain"
+        ]
+      }
+    }
+  }
+}
